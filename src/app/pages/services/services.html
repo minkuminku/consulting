@@ -1,0 +1,86 @@
+<main>
+  <!-- Page Header -->
+  <section class="page-header" aria-label="Page header">
+    <div class="container">
+      <span class="badge">What We Offer</span>
+      <h1>Our Services</h1>
+      <p>Practical, tailored software solutions for small businesses and startups. No jargon, no bloat — just software that works.</p>
+    </div>
+  </section>
+
+  <!-- Services Detail -->
+  <section class="section" aria-label="Services">
+    <div class="container">
+      @for (service of services; track service.id) {
+        <article class="service-block" [id]="service.id">
+          <div class="service-header">
+            <div class="service-icon-lg">{{ service.icon }}</div>
+            <div>
+              <h2>{{ service.title }}</h2>
+              <p class="service-tagline">{{ service.tagline }}</p>
+            </div>
+          </div>
+
+          <div class="service-body">
+            <div class="service-description">
+              <p>{{ service.description }}</p>
+
+              <h3>Example projects</h3>
+              <ul class="example-list">
+                @for (ex of service.examples; track ex) {
+                  <li>
+                    <span class="check">✓</span>
+                    {{ ex }}
+                  </li>
+                }
+              </ul>
+
+              <a routerLink="/contact" class="btn btn-primary service-cta">Discuss Your Project →</a>
+            </div>
+
+            <div class="service-highlights">
+              @for (h of service.highlights; track h.label) {
+                <div class="highlight-card">
+                  <div class="highlight-icon">{{ h.icon }}</div>
+                  <div>
+                    <strong>{{ h.label }}</strong>
+                    <p>{{ h.text }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section process-section" aria-labelledby="process-heading">
+    <div class="container">
+      <span class="badge">How It Works</span>
+      <h2 id="process-heading" class="section-title">Our Engagement Process</h2>
+      <p class="section-subtitle">Simple and transparent from first call to final delivery.</p>
+      <div class="process-grid">
+        @for (step of process; track step.step) {
+          <div class="process-step">
+            <div class="step-number">{{ step.step }}</div>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container cta-inner">
+      <div>
+        <h2>Not Sure Which Service You Need?</h2>
+        <p>Book a free 30-minute call and we'll help you figure out the best approach for your situation.</p>
+      </div>
+      <a routerLink="/contact" class="btn btn-white">Book a Free Call</a>
+    </div>
+  </section>
+</main>

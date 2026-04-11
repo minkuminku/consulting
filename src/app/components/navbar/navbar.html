@@ -1,0 +1,23 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <div class="container navbar-inner">
+    <a routerLink="/" class="logo" (click)="closeMenu()">
+      <span class="logo-icon">⟨/⟩</span>
+      <span class="logo-text">DevConsult</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="menuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Home</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMenu()">Services</a>
+      <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMenu()">Portfolio</a>
+      <a routerLink="/faq" routerLinkActive="active" (click)="closeMenu()">FAQ</a>
+      <a routerLink="/contact" class="btn btn-primary nav-cta" (click)="closeMenu()">Book a Free Call</a>
+    </nav>
+
+    <button class="hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-spacer"></div>

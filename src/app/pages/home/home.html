@@ -1,0 +1,129 @@
+<main>
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="badge">Software Consulting</span>
+        <h1>Turning Your Business Ideas<br>Into Working Software</h1>
+        <p class="hero-subtitle">
+          We help small businesses and startups build bespoke web apps, move to the cloud, and explore new ideas — without the enterprise price tag.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/contact" class="btn btn-primary">Book a Free Consultation</a>
+          <a routerLink="/portfolio" class="btn btn-outline">See Our Work</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>2+</strong>
+            <span>Live Products</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>3</strong>
+            <span>Core Services</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Client Focus</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="code-card">
+          <div class="code-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="code-title">your-idea.ts</span>
+          </div>
+          <pre class="code-body"><span class="kw">const</span> <span class="fn">solution</span> = <span class="kw">await</span> devConsult.<span class="fn">build</span>(&#123;
+  idea: <span class="str">"your business need"</span>,
+  budget: <span class="str">"right-sized"</span>,
+  timeline: <span class="str">"realistic"</span>,
+  quality: <span class="str">"production-ready"</span>
+&#125;);
+
+<span class="cm">// Result: working software 🚀</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section services-section" aria-labelledby="services-heading">
+    <div class="container">
+      <span class="badge">What We Do</span>
+      <h2 id="services-heading" class="section-title">Three Ways We Help Your Business</h2>
+      <p class="section-subtitle">From idea to deployment, we cover the full spectrum of software needs for growing businesses.</p>
+      <div class="grid-3 services-grid">
+        @for (service of services; track service.title) {
+          <article class="card service-card">
+            <div class="service-icon">{{ service.icon }}</div>
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.description }}</p>
+            <a [routerLink]="service.link" class="card-link">Learn more →</a>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview -->
+  <section class="section apps-section" aria-labelledby="apps-heading">
+    <div class="container">
+      <span class="badge">Live Products</span>
+      <h2 id="apps-heading" class="section-title">Apps We've Built & Run</h2>
+      <p class="section-subtitle">Real products serving real users.</p>
+      <div class="grid-2 apps-grid">
+        @for (app of apps; track app.name) {
+          <article class="card app-card">
+            <div class="app-emoji">{{ app.emoji }}</div>
+            <h3>{{ app.name }}</h3>
+            <p class="app-tagline">{{ app.tagline }}</p>
+            <p class="app-desc">{{ app.description }}</p>
+            <div class="app-tags">
+              @for (tag of app.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+            <a [href]="app.url" target="_blank" rel="noopener" class="btn btn-outline app-btn">Visit {{ app.name }} ↗</a>
+          </article>
+        }
+      </div>
+      <div class="apps-cta">
+        <a routerLink="/portfolio" class="btn btn-primary">View Full Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section class="section why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <span class="badge">Why DevConsult</span>
+      <h2 id="why-heading" class="section-title">Small Team. Big Results.</h2>
+      <p class="section-subtitle">We're not a faceless agency. You work directly with an experienced developer who cares about your outcome.</p>
+      <div class="grid-3">
+        @for (reason of reasons; track reason.title) {
+          <div class="reason-card">
+            <div class="reason-icon">{{ reason.icon }}</div>
+            <h3>{{ reason.title }}</h3>
+            <p>{{ reason.text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container cta-inner">
+      <div>
+        <h2>Ready to Build Something?</h2>
+        <p>Book a free 30-minute call to discuss your project. No commitment, no sales pitch — just honest advice.</p>
+      </div>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn btn-white">Book a Free Call</a>
+        <a routerLink="/faq" class="btn btn-outline-white">Read FAQs first</a>
+      </div>
+    </div>
+  </section>
+</main>

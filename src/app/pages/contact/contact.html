@@ -1,0 +1,151 @@
+<main>
+  <section class="page-header">
+    <div class="container">
+      <span class="badge">Get In Touch</span>
+      <h1>Let's Talk About Your Project</h1>
+      <p>Book a free 30-minute discovery call or send us a message. We respond within one business day.</p>
+    </div>
+  </section>
+
+  <section class="section contact-section" aria-label="Contact options">
+    <div class="container contact-layout">
+      <!-- Left: Calendly + Info -->
+      <div class="contact-left">
+        <!-- Calendly CTA -->
+        <div class="calendly-card">
+          <div class="calendly-icon">📅</div>
+          <div>
+            <h2>Book a Free 30-Minute Call</h2>
+            <p>Choose a time that works for you. We'll discuss your project, answer your questions, and figure out the best way we can help — with zero commitment.</p>
+            <ul class="call-benefits">
+              <li>✓ No sales pitch</li>
+              <li>✓ Honest technical advice</li>
+              <li>✓ Understand costs &amp; timeline</li>
+              <li>✓ Completely free</li>
+            </ul>
+            <a [href]="calendlyUrl" target="_blank" rel="noopener" class="btn btn-primary calendly-btn">
+              📅 Schedule via Calendly
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact details -->
+        <div class="contact-info-cards">
+          <div class="info-card">
+            <div class="info-icon">✉️</div>
+            <div>
+              <strong>Email Us Directly</strong>
+              <p><a [href]="'mailto:' + email">{{ email }}</a></p>
+              <span class="info-note">We respond within 1 business day</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🌍</div>
+            <div>
+              <strong>We Work Remotely</strong>
+              <p>Serving clients worldwide</p>
+              <span class="info-note">Video calls, async communication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Email Form -->
+      <div class="contact-right">
+        <div class="form-card">
+          <h2>Send Us a Message</h2>
+          <p class="form-subtitle">Prefer to write it out? Fill in the form below and we'll get back to you.</p>
+
+          @if (submitted()) {
+            <div class="success-message" role="alert">
+              <div class="success-icon">🎉</div>
+              <h3>Your email client should have opened!</h3>
+              <p>If not, email us directly at <a [href]="'mailto:' + email">{{ email }}</a></p>
+            </div>
+          } @else {
+            <form (ngSubmit)="sendEmail()" #contactForm="ngForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    [(ngModel)]="form.name"
+                    placeholder="Jane Smith"
+                    required
+                    class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    [(ngModel)]="form.email"
+                    placeholder="jane@company.com"
+                    required
+                    class="form-input" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company">Company / Business Name</label>
+                  <input
+                    id="company"
+                    type="text"
+                    name="company"
+                    [(ngModel)]="form.company"
+                    placeholder="Acme Ltd (optional)"
+                    class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label for="service">Service Interested In</label>
+                  <select id="service" name="service" [(ngModel)]="form.service" class="form-input form-select">
+                    <option value="">Select a service…</option>
+                    @for (s of services; track s) {
+                      <option [value]="s">{{ s }}</option>
+                    }
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Tell Us About Your Project *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  [(ngModel)]="form.message"
+                  placeholder="Describe what you're trying to build or solve. The more detail you provide, the more useful our response will be."
+                  rows="6"
+                  required
+                  class="form-input form-textarea"></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary submit-btn"
+                [disabled]="submitting() || !form.name || !form.email || !form.message">
+                {{ submitting() ? 'Opening email client…' : 'Send Message via Email' }}
+              </button>
+
+              <p class="form-note">This will open your email client with the message pre-filled. Alternatively, email us directly at <a [href]="'mailto:' + email">{{ email }}</a></p>
+            </form>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ nudge -->
+  <section class="faq-nudge section-sm" aria-label="FAQ suggestion">
+    <div class="container faq-nudge-inner">
+      <div>
+        <h2>Have Questions First?</h2>
+        <p>Check our FAQ page — it covers pricing, timelines, technology, ownership, and more.</p>
+      </div>
+      <a routerLink="/faq" class="btn btn-outline">Browse FAQs</a>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,61 @@
+<main>
+  <section class="page-header">
+    <div class="container">
+      <span class="badge">FAQ</span>
+      <h1>Frequently Asked Questions</h1>
+      <p>Everything you need to know before getting in touch. Can't find your answer? <a routerLink="/contact">Ask us directly.</a></p>
+    </div>
+  </section>
+
+  <section class="section faq-section" aria-label="FAQ">
+    <div class="container faq-layout">
+      <aside class="faq-nav" aria-label="FAQ categories">
+        <p class="faq-nav-title">Jump to section</p>
+        <ul>
+          @for (cat of faqs; track cat.category; let i = $index) {
+            <li><a [href]="'#cat-' + i">{{ cat.category }}</a></li>
+          }
+        </ul>
+      </aside>
+
+      <div class="faq-content">
+        @for (cat of faqs; track cat.category; let catIdx = $index) {
+          <div [id]="'cat-' + catIdx" class="faq-category">
+            <h2>{{ cat.category }}</h2>
+            <div class="accordion">
+              @for (item of cat.items; track item.q; let itemIdx = $index) {
+                <div class="accordion-item" [class.open]="item.open">
+                  <button
+                    class="accordion-trigger"
+                    (click)="toggle(catIdx, itemIdx)"
+                    [attr.aria-expanded]="item.open">
+                    <span>{{ item.q }}</span>
+                    <span class="accordion-icon">{{ item.open ? '−' : '+' }}</span>
+                  </button>
+                  @if (item.open) {
+                    <div class="accordion-body">
+                      <p>{{ item.a }}</p>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" aria-label="Still have questions">
+    <div class="container cta-inner">
+      <div>
+        <h2>Still Have Questions?</h2>
+        <p>Book a free 30-minute call and we'll answer everything you need to make a confident decision.</p>
+      </div>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn btn-white">Book a Free Call</a>
+        <a href="mailto:contact@devconsult.com" class="btn btn-outline-white">Email Us</a>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,79 @@
+<main>
+  <section class="page-header">
+    <div class="container">
+      <span class="badge">Our Work</span>
+      <h1>Portfolio</h1>
+      <p>Real products we've designed, built, and deployed — serving users around the world.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Portfolio apps">
+    <div class="container">
+      @for (app of apps; track app.name) {
+        <article class="app-block">
+          <div class="app-hero" [style.--app-color]="app.color">
+            <div class="app-emoji-large">{{ app.emoji }}</div>
+            <div class="app-meta">
+              <span class="app-category">{{ app.category }}</span>
+              <h2>{{ app.name }}</h2>
+              <p class="app-tagline">{{ app.tagline }}</p>
+              <a [href]="app.url" target="_blank" rel="noopener" class="btn btn-white app-visit-btn">
+                Visit {{ app.name }} ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="app-details">
+            <div class="app-text">
+              <h3>About {{ app.name }}</h3>
+              <p>{{ app.description }}</p>
+              <p>{{ app.longDesc }}</p>
+            </div>
+
+            <div class="app-sidebar">
+              <div class="tech-highlights">
+                <h4>Key Features</h4>
+                <ul>
+                  @for (item of app.techHighlights; track item) {
+                    <li>
+                      <span class="check">✓</span>
+                      {{ item }}
+                    </li>
+                  }
+                </ul>
+              </div>
+
+              <div class="app-tags-block">
+                <h4>Technologies & Tags</h4>
+                <div class="app-tags">
+                  @for (tag of app.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
+              </div>
+
+              <a [href]="app.url" target="_blank" rel="noopener" class="btn btn-primary full-width">
+                Visit Live App ↗
+              </a>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- Build yours CTA -->
+  <section class="section build-section" aria-label="Build your own app">
+    <div class="container build-inner">
+      <div class="build-text">
+        <span class="badge">Your Project</span>
+        <h2>Want Us to Build Something Like This for You?</h2>
+        <p>Every one of these apps started as an idea. Whether you need a media tool, an analytics platform, or something completely different — we can scope it, build it, and launch it.</p>
+        <div class="build-actions">
+          <a routerLink="/contact" class="btn btn-primary">Start a Conversation</a>
+          <a routerLink="/services" class="btn btn-outline">See Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
