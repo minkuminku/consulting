@@ -14,11 +14,11 @@ export class Contact implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Contact — Elkasha | Book a Free Consultation');
-    this.meta.updateTag({ name: 'description', content: 'Get in touch with Elkasha. Book a free 30-minute discovery call via Calendly or send us an email with your project requirements.' });
+    this.meta.updateTag({ name: 'description', content: 'Get in touch with Elkasha. Book a free 20-minute discovery call via Calendly or send us an email with your project requirements.' });
   }
 
-  calendlyUrl = 'https://calendly.com/your-name';
-  email = 'contact@elkasha.com';
+  calendlyUrl = 'https://calendly.com/mayankgupta-india/30min';
+  email = 'devsupport@elkasha.com';
 
   form = {
     name: '',

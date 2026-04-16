@@ -33,7 +33,7 @@ export class Faq implements OnInit {
       items: [
         {
           q: 'What is the first step to working with Elkasha?',
-          a: 'The best starting point is a free 30-minute discovery call. We\'ll discuss your business, what you\'re trying to achieve, and whether we\'re the right fit. There\'s no commitment required — just an honest conversation.',
+          a: 'The best starting point is a free 20-minute discovery call. We\'ll discuss your business, what you\'re trying to achieve, and whether we\'re the right fit. There\'s no commitment required — just an honest conversation.',
           open: false
         },
         {
