@@ -23,8 +23,8 @@ export class Faq implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    this.title.setTitle('FAQ — DevConsult | Common Questions About Our Services');
-    this.meta.updateTag({ name: 'description', content: 'Answers to common questions about DevConsult\'s software consulting services — pricing, timelines, cloud platforms, how we work, and more.' });
+    this.title.setTitle('FAQ — Elkasha | Common Questions About Our Services');
+    this.meta.updateTag({ name: 'description', content: 'Answers to common questions about Elkasha\'s software consulting services — pricing, timelines, cloud platforms, how we work, and more.' });
   }
 
   faqs: FaqCategory[] = [
@@ -32,7 +32,7 @@ export class Faq implements OnInit {
       category: 'Working With Us',
       items: [
         {
-          q: 'What is the first step to working with DevConsult?',
+          q: 'What is the first step to working with Elkasha?',
           a: 'The best starting point is a free 30-minute discovery call. We\'ll discuss your business, what you\'re trying to achieve, and whether we\'re the right fit. There\'s no commitment required — just an honest conversation.',
           open: false
         },

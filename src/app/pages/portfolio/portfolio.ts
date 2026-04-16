@@ -12,8 +12,8 @@ export class Portfolio implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    this.title.setTitle('Portfolio — DevConsult | Live Apps We\'ve Built');
-    this.meta.updateTag({ name: 'description', content: 'Explore DevConsult\'s portfolio of live web applications — including MediaConvertZone, a free online media conversion platform, and AnalyzeBig, a big data analytics tool.' });
+    this.title.setTitle('Portfolio — Elkasha | Live Apps We\'ve Built');
+    this.meta.updateTag({ name: 'description', content: 'Explore Elkasha\'s portfolio of live web applications — including MediaConvertZone, a free online media conversion platform, and AnalyzeBig, a big data analytics tool.' });
   }
 
   apps = [

@@ -12,8 +12,8 @@ export class Services implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    this.title.setTitle('Services — DevConsult | Bespoke Web Apps, Cloud Migration & POCs');
-    this.meta.updateTag({ name: 'description', content: 'DevConsult offers bespoke web application development, cloud migration for on-premise tools, and proof-of-concept builds for small businesses and startups.' });
+    this.title.setTitle('Services — Elkasha | Bespoke Web Apps, Cloud Migration & POCs');
+    this.meta.updateTag({ name: 'description', content: 'Elkasha offers bespoke web application development, cloud migration for on-premise tools, and proof-of-concept builds for small businesses and startups.' });
   }
 
   services = [

@@ -13,12 +13,12 @@ export class Contact implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    this.title.setTitle('Contact — DevConsult | Book a Free Consultation');
-    this.meta.updateTag({ name: 'description', content: 'Get in touch with DevConsult. Book a free 30-minute discovery call via Calendly or send us an email with your project requirements.' });
+    this.title.setTitle('Contact — Elkasha | Book a Free Consultation');
+    this.meta.updateTag({ name: 'description', content: 'Get in touch with Elkasha. Book a free 30-minute discovery call via Calendly or send us an email with your project requirements.' });
   }
 
   calendlyUrl = 'https://calendly.com/your-name';
-  email = 'contact@devconsult.com';
+  email = 'contact@elkasha.com';
 
   form = {
     name: '',

@@ -12,8 +12,8 @@ export class Home implements OnInit {
   constructor(private title: Title, private meta: Meta) {}
 
   ngOnInit() {
-    this.title.setTitle('DevConsult — Bespoke Web Apps & Cloud Solutions for Small Businesses');
-    this.meta.updateTag({ name: 'description', content: 'DevConsult helps small businesses and startups build custom web apps, migrate to the cloud, and validate ideas with proof of concepts. Book a free consultation.' });
+    this.title.setTitle('Elkasha — Bespoke Web Apps & Cloud Solutions for Small Businesses');
+    this.meta.updateTag({ name: 'description', content: 'Elkasha helps small businesses and startups build custom web apps, migrate to the cloud, and validate ideas with proof of concepts. Book a free consultation.' });
   }
 
   services = [
