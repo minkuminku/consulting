@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Title, Meta } from '@angular/platform-browser';
 
+declare function gtag_report_conversion(url?: string): boolean;
+
 @Component({
   selector: 'app-contact',
   imports: [RouterLink, FormsModule],
@@ -47,11 +49,14 @@ export class Contact implements OnInit {
     return `mailto:${this.email}?subject=${subject}&body=${body}`;
   }
 
+  trackCalendlyClick() {
+    gtag_report_conversion(this.calendlyUrl);
+  }
+
   sendEmail() {
     if (!this.form.name || !this.form.email || !this.form.message) return;
     this.submitting.set(true);
-    // Open mailto with pre-filled content
-    window.location.href = this.mailtoLink;
+    gtag_report_conversion(this.mailtoLink);
     setTimeout(() => {
       this.submitting.set(false);
       this.submitted.set(true);
