@@ -39,6 +39,14 @@ export class Home implements OnInit {
 
   apps = [
     {
+      name: 'Elkasha Tracking',
+      tagline: 'Real-Time GPS & Device Location Tracking',
+      description: 'A customised GPS tracking platform built on Traccar, supporting real-time location monitoring for GPS hardware devices and mobile phones. We can deploy a fully tailored, self-hosted version for your fleet, field team, or asset tracking needs.',
+      url: 'https://tracking.elkasha.com',
+      tags: ['GPS Tracking', 'IoT', 'Real-Time', 'Fleet Management'],
+      emoji: '📡'
+    },
+    {
       name: 'MediaConvertZone',
       tagline: 'Free Online Media Conversion Platform',
       description: 'A browser-based platform offering video, audio, and image format conversion tools — no software installation required. Built for media professionals, content creators, and everyday users who need fast, reliable file conversions.',

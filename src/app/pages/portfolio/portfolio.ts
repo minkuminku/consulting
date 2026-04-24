@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,14 +9,37 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './portfolio.css'
 })
 export class Portfolio implements OnInit {
-  constructor(private title: Title, private meta: Meta) {}
+  constructor(private title: Title, private meta: Meta, private sanitizer: DomSanitizer) {}
+
+  safeHtml(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
 
   ngOnInit() {
     this.title.setTitle('Portfolio — Elkasha | Live Apps We\'ve Built');
-    this.meta.updateTag({ name: 'description', content: 'Explore Elkasha\'s portfolio of live web applications — including MediaConvertZone, a free online media conversion platform, and AnalyzeBig, a big data analytics tool.' });
+    this.meta.updateTag({ name: 'description', content: 'Explore Elkasha\'s portfolio of live web applications — including MediaConvertZone, AnalyzeBig, and a customised GPS location tracking platform built on Traccar.' });
   }
 
   apps = [
+    {
+      name: 'Elkasha Tracking',
+      url: 'https://tracking.elkasha.com',
+      emoji: '📡',
+      category: 'IoT & Location Services',
+      tagline: 'Real-Time GPS & Device Location Tracking',
+      description: 'Elkasha Tracking is a live demo of a customised GPS location tracking platform, built on Traccar — a leading open-source tracking system trusted by thousands of deployments worldwide. Anyone can register a device and track its real-time location through an intuitive web dashboard. To publish sample location data from your smartphone, use the <a href="https://www.traccar.org/client/" target="_blank" rel="noopener">Traccar Client app</a>.',
+      longDesc: 'Traccar supports hundreds of GPS hardware protocols as well as mobile phones, making it one of the most versatile open-source tracking solutions available. Elkasha can deploy a fully customised, self-hosted Traccar instance for your business — whether you need fleet management, field team monitoring, asset tracking, or a branded tracking service for your own customers. Contact us to discuss a setup tailored to your scale and requirements.',
+      techHighlights: [
+        'Real-time location updates for multiple devices simultaneously',
+        'Supports GPS hardware devices and mobile phone tracking',
+        'Web dashboard with live map view and historical playback',
+        'Self-hosted deployment — your data stays under your control',
+        'Customisable alerts, geofences, and reporting',
+        { text: 'To publish sample location data from your smartphone, use the ', linkText: 'Traccar Client app', url: 'https://www.traccar.org/client/' }
+      ],
+      tags: ['GPS Tracking', 'IoT', 'Fleet Management', 'Traccar', 'Real-Time', 'Self-Hosted', 'Open Source'],
+      color: '#10b981'
+    },
     {
       name: 'MediaConvertZone',
       url: 'https://mediaconvertzone.com',

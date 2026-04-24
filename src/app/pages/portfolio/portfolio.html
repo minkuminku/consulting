@@ -26,7 +26,7 @@
           <div class="app-details">
             <div class="app-text">
               <h3>About {{ app.name }}</h3>
-              <p>{{ app.description }}</p>
+              <p [innerHTML]="safeHtml(app.description)"></p>
               <p>{{ app.longDesc }}</p>
             </div>
 
@@ -37,7 +37,11 @@
                   @for (item of app.techHighlights; track item) {
                     <li>
                       <span class="check">✓</span>
-                      {{ item }}
+                      @if ($any(item).url) {
+                        {{ $any(item).text }}<a [href]="$any(item).url" target="_blank" rel="noopener">{{ $any(item).linkText }}</a>
+                      } @else {
+                        {{ item }}
+                      }
                     </li>
                   }
                 </ul>
