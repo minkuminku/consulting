@@ -22,25 +22,6 @@ export class Portfolio implements OnInit {
 
   apps = [
     {
-      name: 'Elkasha Tracking',
-      url: 'https://tracking.elkasha.com',
-      emoji: '📡',
-      category: 'IoT & Location Services',
-      tagline: 'Real-Time GPS & Device Location Tracking',
-      description: 'Elkasha Tracking is a live demo of a customised GPS location tracking platform, built on Traccar — a leading open-source tracking system trusted by thousands of deployments worldwide. Anyone can register a device and track its real-time location through an intuitive web dashboard. To publish sample location data from your smartphone, use the <a href="https://www.traccar.org/client/" target="_blank" rel="noopener">Traccar Client app</a>.',
-      longDesc: 'Traccar supports hundreds of GPS hardware protocols as well as mobile phones, making it one of the most versatile open-source tracking solutions available. Elkasha can deploy a fully customised, self-hosted Traccar instance for your business — whether you need fleet management, field team monitoring, asset tracking, or a branded tracking service for your own customers. Contact us to discuss a setup tailored to your scale and requirements.',
-      techHighlights: [
-        'Real-time location updates for multiple devices simultaneously',
-        'Supports GPS hardware devices and mobile phone tracking',
-        'Web dashboard with live map view and historical playback',
-        'Self-hosted deployment — your data stays under your control',
-        'Customisable alerts, geofences, and reporting',
-        { text: 'To publish sample location data from your smartphone, use the ', linkText: 'Traccar Client app', url: 'https://www.traccar.org/client/' }
-      ],
-      tags: ['GPS Tracking', 'IoT', 'Fleet Management', 'Traccar', 'Real-Time', 'Self-Hosted', 'Open Source'],
-      color: '#10b981'
-    },
-    {
       name: 'MediaConvertZone',
       url: 'https://mediaconvertzone.com',
       emoji: '🎬',
@@ -63,6 +44,25 @@ export class Portfolio implements OnInit {
       techHighlights: ['Upload and analyse CSV, Excel, and JSON datasets', 'Interactive charts and visualisations', 'Statistical summaries and trend detection', 'Cloud-powered for handling large files with speed'],
       tags: ['Data Analytics', 'Visualisation', 'Business Intelligence', 'Cloud-Powered'],
       color: '#0ea5e9'
+    },
+    {
+      name: 'Elkasha Tracking',
+      url: 'https://tracking.elkasha.com',
+      emoji: '📡',
+      category: 'IoT & Location Services',
+      tagline: 'Real-Time GPS & Device Location Tracking',
+      description: 'Elkasha Tracking is a live demo of a customised GPS location tracking platform, built on Traccar — a leading open-source tracking system trusted by thousands of deployments worldwide. Anyone can register a device and track its real-time location through an intuitive web dashboard. To publish sample location data from your smartphone, use the <a href="https://www.traccar.org/client/" target="_blank" rel="noopener">Traccar Client app</a>.',
+      longDesc: 'Traccar supports hundreds of GPS hardware protocols as well as mobile phones, making it one of the most versatile open-source tracking solutions available. Elkasha can deploy a fully customised, self-hosted Traccar instance for your business — whether you need fleet management, field team monitoring, asset tracking, or a branded tracking service for your own customers. Contact us to discuss a setup tailored to your scale and requirements.',
+      techHighlights: [
+        'Real-time location updates for multiple devices simultaneously',
+        'Supports GPS hardware devices and mobile phone tracking',
+        'Web dashboard with live map view and historical playback',
+        'Self-hosted deployment — your data stays under your control',
+        'Customisable alerts, geofences, and reporting',
+        { text: 'To publish sample location data from your smartphone, use the ', linkText: 'Traccar Client app', url: 'https://www.traccar.org/client/' }
+      ],
+      tags: ['GPS Tracking', 'IoT', 'Fleet Management', 'Traccar', 'Real-Time', 'Self-Hosted', 'Open Source'],
+      color: '#10b981'
     }
   ];
 }
