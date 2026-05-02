@@ -45,26 +45,39 @@
             <div>
               <strong>We Work Remotely</strong>
               <p>Serving clients worldwide</p>
-              <span class="info-note">Video calls, async communication</span>
+              <span class="info-note">Base office: New-Delhi, India</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right: Email Form -->
+      <!-- Right: Message Form -->
       <div class="contact-right">
         <div class="form-card">
           <h2>Send Us a Message</h2>
-          <p class="form-subtitle">Prefer to write it out? Fill in the form below and we'll get back to you.</p>
+          <p class="form-subtitle">Fill in the form below and we'll get back to you within one business day.</p>
 
           @if (submitted()) {
             <div class="success-message" role="alert">
               <div class="success-icon">🎉</div>
-              <h3>Your email client should have opened!</h3>
-              <p>If not, email us directly at <a [href]="'mailto:' + email">{{ email }}</a></p>
+              <h3>Message Received!</h3>
+              <p>Thanks for reaching out. We'll get back to you within one business day.</p>
             </div>
           } @else {
-            <form (ngSubmit)="sendEmail()" #contactForm="ngForm" novalidate>
+            @if (error()) {
+              <div class="error-banner" role="alert">
+                <span class="error-icon">⚠️</span>
+                <span>{{ error() }}</span>
+                <a [href]="mailtoLink" class="error-fallback-link">Send via email instead ↗</a>
+              </div>
+            }
+
+            <form (ngSubmit)="sendMessage()" novalidate>
+              <!-- Honeypot — hidden from users, bots fill it -->
+              <div class="honeypot-field" aria-hidden="true">
+                <input type="text" name="website" [(ngModel)]="form.website" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name *</label>
@@ -75,7 +88,12 @@
                     [(ngModel)]="form.name"
                     placeholder="Jane Smith"
                     required
+                    [disabled]="submitting()"
+                    [class.form-input-error]="nameOverLimit"
                     class="form-input" />
+                  @if (nameOverLimit) {
+                    <span class="field-error">Max {{ NAME_CHAR_LIMIT }} characters ({{ form.name.length }} used)</span>
+                  }
                 </div>
                 <div class="form-group">
                   <label for="email">Email Address *</label>
@@ -86,7 +104,12 @@
                     [(ngModel)]="form.email"
                     placeholder="jane@company.com"
                     required
+                    [disabled]="submitting()"
+                    [class.form-input-error]="emailOverLimit"
                     class="form-input" />
+                  @if (emailOverLimit) {
+                    <span class="field-error">Max {{ EMAIL_CHAR_LIMIT }} characters ({{ form.email.length }} used)</span>
+                  }
                 </div>
               </div>
 
@@ -99,11 +122,16 @@
                     name="company"
                     [(ngModel)]="form.company"
                     placeholder="Acme Ltd (optional)"
+                    [disabled]="submitting()"
+                    [class.form-input-error]="companyOverLimit"
                     class="form-input" />
+                  @if (companyOverLimit) {
+                    <span class="field-error">Max {{ COMPANY_CHAR_LIMIT }} characters ({{ form.company.length }} used)</span>
+                  }
                 </div>
                 <div class="form-group">
                   <label for="service">Service Interested In</label>
-                  <select id="service" name="service" [(ngModel)]="form.service" class="form-input form-select">
+                  <select id="service" name="service" [(ngModel)]="form.service" [disabled]="submitting()" class="form-input form-select">
                     <option value="">Select a service…</option>
                     @for (s of services; track s) {
                       <option [value]="s">{{ s }}</option>
@@ -121,17 +149,39 @@
                   placeholder="Describe what you're trying to build or solve. The more detail you provide, the more useful our response will be."
                   rows="6"
                   required
+                  [disabled]="submitting()"
+                  [class.form-input-error]="messageOverLimit"
                   class="form-input form-textarea"></textarea>
+                <div class="word-count" [class.word-count-over]="messageOverLimit">
+                  {{ charCount() }} / {{ MESSAGE_CHAR_LIMIT }} characters
+                  @if (messageOverLimit) {
+                    — please shorten your message
+                  }
+                </div>
               </div>
+
+              @if (submitting()) {
+                <div class="progress-bar-wrap" role="progressbar" [attr.aria-valuenow]="progress()" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-bar-track">
+                    <div class="progress-bar-fill" [style.width.%]="progress()"></div>
+                  </div>
+                  <p class="progress-label">
+                    {{ progress() < 90 ? 'Sending your message…' : 'Almost there…' }}
+                  </p>
+                </div>
+              }
 
               <button
                 type="submit"
                 class="btn btn-primary submit-btn"
-                [disabled]="submitting() || !form.name || !form.email || !form.message">
-                {{ submitting() ? 'Opening email client…' : 'Send Message via Email' }}
+                [disabled]="submitting() || !form.name || !form.email || !form.message || anyFieldOverLimit">
+                {{ submitting() ? 'Sending…' : 'Send Message' }}
               </button>
 
-              <p class="form-note">This will open your email client with the message pre-filled. Alternatively, email us directly at <a [href]="'mailto:' + email">{{ email }}</a></p>
+              <p class="form-note">
+                Prefer email?
+                <a [href]="mailtoLink">Send directly from your email client ↗</a>
+              </p>
             </form>
           }
         </div>
