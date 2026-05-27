@@ -39,6 +39,14 @@ export class Home implements OnInit {
 
   apps = [
     {
+      name: 'WhatsApp Business Chat',
+      tagline: 'Managed WhatsApp Automation for Your Business',
+      description: 'A live demo showcasing automated WhatsApp Business Chat — instant responses, stateful conversation flows, and cloud-backed message handling. We can build a fully customised WhatsApp chat solution for your business.',
+      url: 'https://wa.me/919971905553',
+      tags: ['WhatsApp', 'Messaging', 'Automation', 'Cloud'],
+      emoji: '💬'
+    },
+    {
       name: 'Elkasha Tracking',
       tagline: 'Real-Time GPS & Device Location Tracking',
       description: 'A customised GPS tracking platform built on Traccar, supporting real-time location monitoring for GPS hardware devices and mobile phones. We can deploy a fully tailored, self-hosted version for your fleet, field team, or asset tracking needs.',

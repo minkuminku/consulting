@@ -27,6 +27,11 @@
             <div class="app-text">
               <h3>About {{ app.name }}</h3>
               <p [innerHTML]="safeHtml(app.description)"></p>
+              @if ($any(app).screenshot) {
+                <div class="app-screenshot-wrap">
+                  <img [src]="$any(app).screenshot" [alt]="app.name + ' demo screenshot'" class="app-screenshot" loading="lazy" />
+                </div>
+              }
               <p>{{ app.longDesc }}</p>
             </div>
 

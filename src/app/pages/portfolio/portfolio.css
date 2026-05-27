@@ -87,6 +87,19 @@
   margin-bottom: 16px;
 }
 
+/* Demo screenshot */
+.app-screenshot-wrap {
+  margin: 20px 0 24px;
+  display: flex;
+}
+
+.app-screenshot {
+  width: 220px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
+  border: 1px solid var(--border);
+}
+
 .tech-highlights {
   background: var(--surface);
   border: 1px solid var(--border);
