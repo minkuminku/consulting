@@ -47,6 +47,14 @@ export class Home implements OnInit {
       emoji: '💬'
     },
     {
+      name: 'LostOpinion',
+      tagline: 'Real-Time Yes/No Polling Platform',
+      description: 'A live polling platform where users answer quick Yes/No questions on technology, society, politics, and everyday life — and see real-time results as the world votes. Privacy-first, with AWS-backed authentication and no data sold to third parties.',
+      url: 'https://lostopinion.com',
+      tags: ['Polling', 'Real-Time', 'Public Opinion', 'AWS Cognito'],
+      emoji: '🗳️'
+    },
+    {
       name: 'Elkasha Tracking',
       tagline: 'Real-Time GPS & Device Location Tracking',
       description: 'A customised GPS tracking platform built on Traccar, supporting real-time location monitoring for GPS hardware devices and mobile phones. We can deploy a fully tailored, self-hosted version for your fleet, field team, or asset tracking needs.',

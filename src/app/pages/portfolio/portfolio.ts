@@ -17,7 +17,7 @@ export class Portfolio implements OnInit {
 
   ngOnInit() {
     this.title.setTitle('Portfolio — Elkasha | Live Apps We\'ve Built');
-    this.meta.updateTag({ name: 'description', content: 'Explore Elkasha\'s portfolio — WhatsApp Business Chat automation, GPS tracking, media conversion, and data analytics platforms built and deployed by Elkasha.' });
+    this.meta.updateTag({ name: 'description', content: 'Explore Elkasha\'s portfolio — WhatsApp Business Chat automation, real-time polling, GPS tracking, media conversion, and data analytics platforms built and deployed by Elkasha.' });
   }
 
   apps = [
@@ -65,6 +65,26 @@ export class Portfolio implements OnInit {
       techHighlights: ['Upload and analyse CSV, Excel, and JSON datasets', 'Interactive charts and visualisations', 'Statistical summaries and trend detection', 'Cloud-powered for handling large files with speed'],
       tags: ['Data Analytics', 'Visualisation', 'Business Intelligence', 'Cloud-Powered'],
       color: '#0ea5e9',
+      screenshot: null
+    },
+    {
+      name: 'LostOpinion',
+      url: 'https://lostopinion.com',
+      emoji: '🗳️',
+      category: 'Polling & Public Opinion',
+      tagline: 'Real-Time Yes/No Polling Platform',
+      description: 'LostOpinion is a real-time polling platform where users answer quick Yes/No questions on diverse topics — technology, society, politics, and everyday life — and instantly see how the world responds. No lengthy sign-ups, just honest collective opinion at a glance.',
+      longDesc: 'Built on the belief that "collective opinion is a powerful lens through which we can understand the world around us," LostOpinion makes public polling accessible and immediate. Users can browse live surveys, cast a single vote per question, and watch results update in real time as new votes arrive. Privacy-first by design — individual answers are never exposed to other users, and user data is never sold or shared with third parties.',
+      techHighlights: [
+        'Real-time polling with live vote counts and percentages',
+        'Simple Yes/No voting with one-vote-per-user enforcement per question',
+        'Live countdown timers on all active surveys',
+        'Google and Facebook sign-in via AWS Cognito',
+        'Privacy-first: no data sold, no third-party data sharing',
+        'Dynamic results visualised with progress bars and percentages'
+      ],
+      tags: ['Polling', 'Public Opinion', 'Real-Time', 'AWS Cognito', 'Social Platform'],
+      color: '#f59e0b',
       screenshot: null
     },
     {
